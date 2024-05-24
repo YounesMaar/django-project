@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historique | Budgets</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5 mb-4">Budgets</h1>
+
+      <ul class="list-group">
+        {% for depense in depenses %} {% if budget.user == request.user %}
+
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-md-4">
+              <strong>{{ budget.date }}</strong>
+            </div>
+            <div class="col-md-4">
+              <span class="badge badge-primary"
+                >{{ budget.categorie.type }}</span
+              >
+            </div>
+            <div class="col-md-4">
+              <span class="badge badge-success">{{ budget.montant }}</span>
+            </div>
+          </div>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
